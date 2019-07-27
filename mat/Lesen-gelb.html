@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title>Lesetraining GELB</title>
+
+    <style>
+        body {
+            background-color: gold;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 25px;
+        };
+        h1 {
+            font-size: 200%;
+            font-family: Arial, Helvetica, sans-serif;
+            };
+        p {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 25px;
+        }
+        
+    </style>
+    
+    <!-- ******* script ************************ -->
+    <script>
+       
+        
+        function korrigieren(eingabe, loesung) {
+            
+            var richtig = 0;
+            var falsch = 0;
+            var test = []; // leerer String, um doppelte zu prüfen
+            var i = 0;
+
+            var eingabeArray = eingabe.split(","); // Elemente = String
+
+            
+            do {
+                // doppelte Zahlen?
+                if (test.indexOf(eingabeArray[i]) >= 0) {
+                    alert("Falsche Eingabe - doppelte Zahl");
+                    return;
+                } else {
+                    test.push(eingabeArray[i]);
+                    //console.log(test);
+                }
+
+                // Eingabe mit Lösung vergleichen
+                if (loesung.indexOf(Number(eingabeArray[i])) >= 0 ) {
+                    richtig++;
+                } else {
+                    falsch++;
+                }
+                i++;
+            } while (i < eingabeArray.length);
+
+            // Resultat ausgeben
+            if (eingabeArray.length < loesung.length) {
+                alert("Zu wenige Lösungen, davon " + richtig + 
+                " richtig und " + falsch + " falsch");
+            }
+            if (eingabeArray.length > loesung.length) {
+                alert("Zu viele Lösungen, davon " + richtig + 
+                " richtig und " + falsch + " falsch");
+            }
+            if (richtig == loesung.length) {
+                alert("Super - alles richtig");
+                return;
+            } 
+            if (eingabeArray.length == loesung.length) {
+                alert("Genug Lösungen, davon " + richtig + 
+                " richtig und " + falsch + " falsch");
+            }
+            
+            
+        } // end function korrigieren
+
+
+        // =======================================================
+        function Aufgabe1()
+            {
+                var eingabe = prompt("Deine Lösung: ");
+                var loesung = [2,4,8,9,10,12]; // als Array
+
+                // Funktion, ob Lösung mit Eingabe übereinstimmt
+                //      Rückgabe: Text mit Anzahl richtige und falsche oder super 
+                korrigieren(eingabe,loesung);
+                return;
+
+            }
+            
+        // end function
+
+        function Aufgabe2()
+            {
+                var eingabe = prompt("Deine Lösung: ");
+                var loesung = [3,4,5,6,7,10]; // als Array
+
+                // Funktion, ob Lösung mit Eingabe übereinstimmt
+                //      Rückgabe: Text mit Anzahl richtige und falsche oder super 
+                korrigieren(eingabe,loesung);
+                return;
+
+            }
+            
+        // end function
+
+        function Aufgabe3()
+            {
+                var eingabe = prompt("Deine Lösung: ");
+                var loesung = [1,4,5,7,8,9,14]; // als Array
+
+                // Funktion, ob Lösung mit Eingabe übereinstimmt
+                //      Rückgabe: Text mit Anzahl richtige und falsche oder super 
+                korrigieren(eingabe,loesung);
+                return;
+
+            }
+            
+        // end function
+
+        function Aufgabe4()
+            {
+                var eingabe = prompt("Deine Lösung: ");
+                var loesung = [1,3,4,5,9,10,11]; // als Array
+
+                // Funktion, ob Lösung mit Eingabe übereinstimmt
+                //      Rückgabe: Text mit Anzahl richtige und falsche oder super 
+                korrigieren(eingabe,loesung);
+                return;
+
+            }
+            
+        // end function
+
+        function Aufgabe5()
+            {
+                var eingabe = prompt("Deine Lösung: ");
+                var loesung = [2,4,6,7,9,12]; // als Array
+
+                // Funktion, ob Lösung mit Eingabe übereinstimmt
+                //      Rückgabe: Text mit Anzahl richtige und falsche oder super 
+                korrigieren(eingabe,loesung);
+                return;
+
+            }
+            
+        // end function
+
+        function Aufgabe6()
+            {
+                var eingabe = prompt("Deine Lösung: ");
+                var loesung = [1,2,6,8,9,10]; // als Array
+
+                // Funktion, ob Lösung mit Eingabe übereinstimmt
+                //      Rückgabe: Text mit Anzahl richtige und falsche oder super 
+                korrigieren(eingabe,loesung);
+                return;
+
+            }
+            
+        // end function
+
+        function Aufgabe7()
+            {
+                var eingabe = prompt("Deine Lösung: ");
+                var loesung = [4,5,8,11,12,13,14]; // als Array
+
+                // Funktion, ob Lösung mit Eingabe übereinstimmt
+                //      Rückgabe: Text mit Anzahl richtige und falsche oder super 
+                korrigieren(eingabe,loesung);
+                return;
+
+            }
+            
+        // end function
+
+        function Aufgabe8()
+            {
+                var eingabe = prompt("Deine Lösung: ");
+                var loesung = [1,4,5,6,10,13]; // als Array
+
+                // Funktion, ob Lösung mit Eingabe übereinstimmt
+                //      Rückgabe: Text mit Anzahl richtige und falsche oder super 
+                korrigieren(eingabe,loesung);
+                return;
+
+            }
+            
+        // end function
+
+        function Aufgabe9()
+            {
+                var eingabe = prompt("Deine Lösung: ");
+                var loesung = [1,5,8,9,11,13,14]; // als Array
+
+                // Funktion, ob Lösung mit Eingabe übereinstimmt
+                //      Rückgabe: Text mit Anzahl richtige und falsche oder super 
+                korrigieren(eingabe,loesung);
+                return;
+
+            }
+            
+        // end function
+
+        function Aufgabe10()
+            {
+                var eingabe = prompt("Deine Lösung: ");
+                var loesung = [2,3,8,9,10,13,14]; // als Array
+
+                // Funktion, ob Lösung mit Eingabe übereinstimmt
+                //      Rückgabe: Text mit Anzahl richtige und falsche oder super 
+                korrigieren(eingabe,loesung);
+                return;
+
+            }
+            
+        // end function
+
+        function Aufgabe11()
+            {
+                var eingabe = prompt("Deine Lösung: ");
+                var loesung = [3,4,7,8,9,11]; // als Array
+
+                // Funktion, ob Lösung mit Eingabe übereinstimmt
+                //      Rückgabe: Text mit Anzahl richtige und falsche oder super 
+                korrigieren(eingabe,loesung);
+                return;
+
+            }
+            
+        // end function
+
+        function Aufgabe12()
+            {
+                var eingabe = prompt("Deine Lösung: ");
+                var loesung = [1,3,4,5,9,10,13]; // als Array
+
+                // Funktion, ob Lösung mit Eingabe übereinstimmt
+                //      Rückgabe: Text mit Anzahl richtige und falsche oder super 
+                korrigieren(eingabe,loesung);
+                return;
+
+            }
+            
+        // end function
+
+        function Aufgabe13()
+            {
+                var eingabe = prompt("Deine Lösung: ");
+                var loesung = [2,5,6,7,9,10,11]; // als Array
+
+                // Funktion, ob Lösung mit Eingabe übereinstimmt
+                //      Rückgabe: Text mit Anzahl richtige und falsche oder super 
+                korrigieren(eingabe,loesung);
+                return;
+
+            }
+            
+        // end function
+
+        function Aufgabe14()
+            {
+                var eingabe = prompt("Deine Lösung: ");
+                var loesung = [4,6,8,9,10,11,12]; // als Array
+
+                // Funktion, ob Lösung mit Eingabe übereinstimmt
+                //      Rückgabe: Text mit Anzahl richtige und falsche oder super 
+                korrigieren(eingabe,loesung);
+                return;
+
+            }
+            
+        // end function
+
+        function Aufgabe15()
+            {
+                var eingabe = prompt("Deine Lösung: ");
+                var loesung = [5,7,8,9,13,14]; // als Array
+
+                // Funktion, ob Lösung mit Eingabe übereinstimmt
+                //      Rückgabe: Text mit Anzahl richtige und falsche oder super 
+                korrigieren(eingabe,loesung);
+                return;
+
+            }
+            
+        // end function
+
+        function Aufgabe16()
+            {
+                var eingabe = prompt("Deine Lösung: ");
+                var loesung = [1,3,5,8,10,11]; // als Array
+
+                // Funktion, ob Lösung mit Eingabe übereinstimmt
+                //      Rückgabe: Text mit Anzahl richtige und falsche oder super 
+                korrigieren(eingabe,loesung);
+                return;
+
+            }
+            
+        // end function
+
+        function Aufgabe17()
+            {
+                var eingabe = prompt("Deine Lösung: ");
+                var loesung = [2,3,6,7,11,12]; // als Array
+
+                // Funktion, ob Lösung mit Eingabe übereinstimmt
+                //      Rückgabe: Text mit Anzahl richtige und falsche oder super 
+                korrigieren(eingabe,loesung);
+                return;
+
+            }
+            
+        // end function
+
+        function Aufgabe18()
+            {
+                var eingabe = prompt("Deine Lösung: ");
+                var loesung = [3,5,7,9,10,12]; // als Array
+
+                // Funktion, ob Lösung mit Eingabe übereinstimmt
+                //      Rückgabe: Text mit Anzahl richtige und falsche oder super 
+                korrigieren(eingabe,loesung);
+                return;
+
+            }
+            
+        // end function
+
+        function Aufgabe19()
+            {
+                var eingabe = prompt("Deine Lösung: ");
+                var loesung = [1,4,7,8,9]; // als Array
+
+                // Funktion, ob Lösung mit Eingabe übereinstimmt
+                //      Rückgabe: Text mit Anzahl richtige und falsche oder super 
+                korrigieren(eingabe,loesung);
+                return;
+
+            }
+            
+        // end function
+
+        function Aufgabe20()
+            {
+                var eingabe = prompt("Deine Lösung: ");
+                var loesung = [1,2,9,10,13,14]; // als Array
+
+                // Funktion, ob Lösung mit Eingabe übereinstimmt
+                //      Rückgabe: Text mit Anzahl richtige und falsche oder super 
+                korrigieren(eingabe,loesung);
+                return;
+
+            }
+            
+        // end function
+
+
+        // ===================================================================
+        
+    </script>
+  
+  </head>
+  
+  <body>
+    <h1>Lesetraining GELB</h1>
+      
+    Lösung so eingeben: 1,4,8,2 
+
+    <p>
+        <input type='button' value='Text 1' onclick='Aufgabe1()'>  
+    </p>
+
+    <p>
+        <input type='button' value='Text 2' onclick='Aufgabe2()'>     
+    </p>
+
+    <p>
+        <input type='button' value='Text 3' onclick='Aufgabe3()'>  
+    </p>
+
+    <p>
+        <input type='button' value='Text 4' onclick='Aufgabe4()'>     
+    </p>
+
+    <p>
+        <input type='button' value='Text 5' onclick='Aufgabe5()'>  
+    </p>
+
+    <p>
+        <input type='button' value='Text 6' onclick='Aufgabe6()'>     
+    </p>
+
+    <p>
+        <input type='button' value='Text 7' onclick='Aufgabe7()'>  
+    </p>
+
+    <p>
+        <input type='button' value='Text 8' onclick='Aufgabe8()'>     
+    </p>
+
+    <p>
+        <input type='button' value='Text 9' onclick='Aufgabe9()'>  
+    </p>
+
+    <p>
+        <input type='button' value='Text 10' onclick='Aufgabe10()'>     
+    </p>
+
+    <p>
+        <input type='button' value='Text 11' onclick='Aufgabe11()'>  
+    </p>
+
+    <p>
+        <input type='button' value='Text 12' onclick='Aufgabe12()'>     
+    </p>
+
+    <p>
+        <input type='button' value='Text 13' onclick='Aufgabe13()'>  
+    </p>
+
+    <p>
+        <input type='button' value='Text 14' onclick='Aufgabe14()'>     
+    </p>
+
+    <p>
+        <input type='button' value='Text 15' onclick='Aufgabe15()'>  
+    </p>
+
+    <p>
+        <input type='button' value='Text 16' onclick='Aufgabe16()'>     
+    </p>
+
+    <p>
+        <input type='button' value='Text 17' onclick='Aufgabe17()'>  
+    </p>
+
+    <p>
+        <input type='button' value='Text 18' onclick='Aufgabe18()'>     
+    </p>
+
+    <p>
+        <input type='button' value='Text 19' onclick='Aufgabe19()'>  
+    </p>
+
+    <p>
+        <input type='button' value='Text 20' onclick='Aufgabe20()'>     
+    </p>
+
+      
+
+  </body>
+
+
+
+</html>

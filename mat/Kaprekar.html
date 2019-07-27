@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title>Kaprekar-Konstante</title>
+
+    <style>
+        body {
+            background-color:  white;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 20px;
+            line-height: 1.4;
+            padding: 2px
+            }
+
+        h1 {
+            font-size: 200%;
+            font-family: Arial, Helvetica, sans-serif;
+            }
+
+        p {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 20px;
+            }
+        table {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 20px
+            }
+        td:nth-of-type(1){
+            text-align: right;
+            }
+        td:nth-of-type(2){
+            text-align:left;
+            }
+        td:nth-of-type(3){
+            text-align:left;
+            }
+        input[type=text] {
+            width: 10%;
+            padding: 8px 8px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            font-size: 20px;
+            }
+        
+        input[type=button] {
+            background-color: lightgray;
+            border: none;
+            color: black;
+            padding: 8px 8px;
+            text-decoration: none;
+            margin: 8px 2px;
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+
+        a:link, a:visited {
+            background-color: lightgray;
+            color: black;
+            padding: 2px 5px;
+            text-align: center;
+            text-decoration: underline;
+            display: inline-block;
+            }
+
+        a:hover, a:active {
+            background-color: lightgray;
+            }
+        
+        #Ziel {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+
+            }
+        
+    </style>
+    
+    <!-- ******* script ************************ -->
+    <script>
+        // Focus auf input-Feld
+        window.onload = function() {
+            document.getElementById("abfrage").focus();
+        };
+
+// 1. Zahl eingeben ==> im body-Teil
+    
+        // Global Variable für Ausgabe des Resultates
+        var TEXT = "";   
+
+ // ===========================================================================            
+
+        function rechnen () {
+            löschen();
+// 2. Eingabe holen als String            
+            var eingabe = document.getElementById("abfrage").value; //string
+            //alert(eingabe + " " + typeof eingabe);
+            document.getElementById("abfrage").value = "";
+
+// 3. Eingabe testen, ob 3-, 4- oder 6-stellig  -- später
+// 4. Eingabe testen, ob Zahl  -- später
+            testenEingabe (eingabe);
+
+// 8. so lange rechnen, bis das neue Ergebnis gleich gross ist wie die Eingabe dazu
+            var i = 1;
+            var hilfe = 0;
+            var gross = 0; var klein = 0;
+            do {
+// 5. Eingabe umwandeln in Zahl -- unnötig
+// 6. Eingabe umwandeln in grösste Zahl und kleinste Zahl
+                gross = umwandelnGross (eingabe);
+                //alert (gross + " " + typeof gross);
+                klein = umwandelnKlein (eingabe);
+                hilfe = gross - klein;
+                //alert (klein + " " + typeof klein);
+                if (eingabe == hilfe.toString()) {
+                    //alert ("asdfja");
+                    break; // Fertig, wenn Kaprekar erreicht
+                }
+// 7. Berechnen: grösste Zahl - kleinste Zahl = neues Ergebnis. Rechnung für Ausgabe speichern
+                //TEXT += i + ": " + eingabe + ": " + gross + " - " + klein + " = " + hilfe + "<br>";
+                TEXT += "<tr><td>" + i + ". &nbsp &nbsp" + "</td> <td> " + eingabe + 
+                        " : &nbsp &nbsp" + "</td> <td>" + gross + " - " + klein + " = " + hilfe + " </td> </tr>";
+                eingabe = hilfe.toString();
+                //alert (typeof eingabe + " " + eingabe);
+                i++;
+            }
+            while (i < 20); 
+            
+// 9. Gespeicherte Rechnungen ausgeben
+            //alert (TEXT);    
+            document.getElementById("ausgabe").innerHTML = TEXT;  
+            //document.getElementById("abfrage").value = "";     
+            return;
+        }
+
+ // ===========================================================================            
+        function umwandelnGross (x)
+            {
+                var gross = 0;
+                var umwandel = x.split("");
+                umwandel.sort(function(a, b){return a - b});
+                for (var i = 0; i < umwandel.length; i++) {
+                    gross = umwandel[i]*10**i + gross;
+                }
+                //alert(typeof gross); //number
+                return gross;
+            }
+
+ // ===========================================================================            
+        
+        function umwandelnKlein (x)
+            {
+                var klein = 0;
+                var umwandel = x.split("");
+                umwandel.sort(function(a, b){return b - a});
+                
+                for (var i = 0; i < umwandel.length; i++) {
+                    klein = umwandel[i]*10**i + klein;
+                }
+                //alert(typeof klein); //number
+                return klein;
+            }
+
+// ===========================================================================    
+            function löschen () 
+                {
+//                    var leer = document.getElementById("abfrage");
+//                    leer.value = "";
+                    TEXT = "";
+                    document.getElementById("ausgabe").innerHTML = TEXT;     
+                    return;
+                }
+// ===========================================================================   
+            function testenEingabe (x) {
+                var test = umwandelnGross (x);
+                //alert(test + " " + typeof test);
+                if (isNaN(test)) {
+                    alert("Falsche Eingabe");
+                    exit;
+                }
+                
+                if (x.length == 3 || x.length == 4) {
+                    return;
+                } else {
+                    alert("Falsche Eingabe");
+                    exit;  
+                }
+            }
+        
+// =========================================================================== 
+            function testEnter (e) {
+                var characterCode = 0;
+ 
+                if (e && e.which) {
+                    characterCode = e.which;
+                } else {
+                    characterCode = e.keyCode;
+                }
+ 
+                if (characterCode == 13) {
+                    rechnen();
+                }
+                
+            }
+// =========================================================================== 
+
+        
+    </script>
+  
+  </head>
+  
+  <body>
+    <h1>Kaprekar-Konstante</h1>
+      
+    <p id="Ziel">
+        &#9679; Schriftlich subtrahieren trainieren
+    </p>
+    <ul>
+        <li>Wähle eine 3- oder 4-stellige Zahl (3892).</li>
+        <li>Bilde aus den Ziffern die grösste Zahl (9832).</li>
+        <li>Bilde aus den Ziffern die kleinste Zahl (2389).</li>
+        <li>Berechne die Differenz der beiden Zahlen (9832 - 2389 = 7443).</li>
+        <li>Mache das gleiche mit dem Ergebnis (7443 - 3447 = ...).</li>
+        <li>Nach einigen Schritten wiederholt sich das Ergebins, das ist die <b>Kaprekar-Konstante</b>.</li>
+    </ul>
+    
+<!-- 1. Zahl eingeben -->
+    <input type="text" id="abfrage" placeholder="1234 ..." onkeypress="testEnter(event)">
+    <input type='button' value='Rechne' onclick='rechnen()'>  
+    <!-- <input type="button" value="Löschen" onclick="löschen()"> -->
+
+    <!-- <p id="ausgabe"></p> -->
+
+    <p id = "infos">
+        <ul>
+            <li>
+                <a href="https://de.wikipedia.org/wiki/Kaprekar-Konstante" target="_blank"  >
+                    Mehr dazu bei Wikipedia
+                </a>
+            </li>
+            <li>
+                <a href="http://bl.ocks.org/christophermanning/6468148" target="_blank" >
+                    Grafische Darstellung aller Kaprekar-Konstanten
+                </a>
+            </li>            
+        </ul>
+    </p>
+
+    <!-- <p id="ausgabe">
+        
+    </p> -->
+    
+    <table id="ausgabe">
+
+    </table>
+
+
+  </body>
+
+</html>

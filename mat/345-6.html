@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title>Zahlen multiplizieren</title>
+
+    <style>
+        body {
+            background-color:  white;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 20px;
+            line-height: 1.4;
+            padding: 2px
+            }
+
+        h1 {
+            font-size: 200%;
+            font-family: Arial, Helvetica, sans-serif;
+            }
+
+        p {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 20px;
+            }
+        table {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 20px
+            }
+        td:nth-of-type(1){
+            text-align: right;
+            }
+        td:nth-of-type(2){
+            text-align:left;
+            }
+        input[type=text] {
+            width: 20%;
+            padding: 8px 8px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            font-size: 20px;
+            }
+        
+        input[type=button] {
+            background-color: lightgray;
+            border: none;
+            color: black;
+            padding: 8px 8px;
+            text-decoration: none;
+            margin: 8px 2px;
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        a:link, a:visited {
+            background-color: lightgray;
+            color: black;
+            padding: 2px 5px;
+            text-align: center;
+            text-decoration: underline;
+            display: inline-block;
+            }
+
+        a:hover, a:active {
+            background-color: lightgray;
+            }
+        
+        #Ziel {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+
+            }
+        
+    </style>
+    
+    <!-- ******* script ************************ -->
+    <script>
+
+        // Focus auf input-Feld
+        window.onload = function() {
+            document.getElementById("abfrage").focus();
+        };
+
+
+        // Global Variable für Ausgabe des Resultates
+        var AUSGABE = "";  
+
+// ============================================================================
+        // die ganze Berechnung starten
+
+// 1. Zahl eingeben und als String holen
+// 2. Eingabe testen, ob Zahl
+// 3. Zahl zerlegen in erste Ziffer und Rest
+// 4. Berechnen >> für Ausgabe speichern
+// 5. mit neuer Zahl Vorgehen wiederholen bis einstellige Zahl herauskommt
+// 6. Resultat ausgeben
+
+        function rechnen () {
+            
+            löschen(); // letzte Ausgabe löschen
+
+            // 1. Zahl eingeben und als String holen
+            var eingabe = document.getElementById("abfrage").value; //string
+            document.getElementById("abfrage").value = ""; // Eingabefeld wieder löschen
+
+            // 2. Eingabe testen, ob Zahl
+            testenEingabe (eingabe);
+
+            // Schlaufe mit Ende 1
+            var i = 1; 
+            var zahlfolge = eingabe; // string
+            var länge = 0; 
+            //alert (länge);
+            var ziffer1 = ""; var zifferRest = "";
+            var hilfszahl = 0;
+
+            do {
+                länge = zahlfolge.length;
+                ziffer1 = zahlfolge.substr((länge - 1),1); 
+                zifferRest = zahlfolge.substr(0,(länge - 1)); ////// richtig ersetzen
+                //alert (ziffer1 + " " + zifferRest);
+                hilfszahl = parseInt(ziffer1) * parseInt(zifferRest);
+                //AUSGABE += i + ". &nbsp &nbsp " + zahlfolge + ": &nbsp &nbsp " + ziffer1 + " &#8729 " +
+                //       zifferRest + " = " + hilfszahl + "<br>";
+                AUSGABE += "<tr> <td>" + i + ". &nbsp &nbsp " + "</td> <td> " + zahlfolge + ": &nbsp &nbsp" +"</td> <td> " + ziffer1 + 
+                    " &#8729 " + zifferRest + " = " + hilfszahl +   "</td> </tr> "
+
+                i++;
+                zahlfolge = hilfszahl.toString();
+                //alert (hilfszahl);
+
+            }
+            while (hilfszahl > 10);
+
+            // 6. Resultat ausgeben
+            document.getElementById("ausgabe").innerHTML = AUSGABE;      
+            return;
+
+
+
+        } // Ende rechnen()
+
+
+// ============================================================================
+        // Letzte Ausgabe nach Neueingabe löschen
+        function löschen () 
+                {
+                    AUSGABE = "";
+                    document.getElementById("ausgabe").innerHTML = AUSGABE;     
+                    return;
+                }
+
+
+// ===========================================================================    
+              
+            function testenEingabe (x) {
+                
+                if (x.length != 4) {
+                    alert ("Falsche Eingabe");
+                    exit;
+                }
+                var test = x.split(""); 
+                //alert(test + " " + typeof test); // 1,2,3 array
+                for (var i = 0; i < test.length; i++) {
+                    //alert (parseInt  (test[i]));
+                    if (isNaN(parseInt  (test[i]))) {
+                        alert("Falsche Eingabe");
+                        exit;
+                    }   
+                }
+            }
+        
+// =========================================================================== 
+            function testEnter (e) {
+                var characterCode = 0;
+ 
+                if (e && e.which) {
+                    characterCode = e.which;
+                } else {
+                    characterCode = e.keyCode;
+                }
+ 
+                if (characterCode == 13) {
+                    rechnen();
+                }
+                
+            }
+// =========================================================================== 
+
+        
+    </script>
+  
+  </head>
+  
+  <body>
+    <h1>Zahlen multiplizieren</h1>
+      
+    <p id="Ziel">
+        &#9679; Schriftlich multiplizieren trainieren
+    </p>
+    
+    <ul>
+        <li>Wähle eine vierstellige Zahl (4567).</li>
+        <li>Nimm die letzte Ziffer (7) und multipliziere sie mit dem Rest (7 &#8729 456 = 3192).</li>
+        <li>Nimm vom Ergebnis wieder die letzte Ziffer und multipliziere mit dem Rest (2 &#8729 319 = 638). </li>
+        <li>Mach so weiter, bis du eine einstellig Zahl erhälst: <br>
+            8 &#8729 63 = 504 &#8658 4 &#8729 50 = 200 &#8658 0 &#8729 20 = 0.
+        </li>
+        <li>Wie oft geht deine Zahl (4567 geht 5 mal)? </li>
+        <li>Suche Zahlen, die möglichst oft gehen.</li>
+            
+    </ul>
+    
+     <!-- 1. Zahl eingeben -->
+    <input type="text" id="abfrage" placeholder="123" onkeypress="testEnter(event)">
+    <input type='button' value='Rechne' onclick='rechnen()'>  
+
+    
+
+    <p id = "infos">
+        <!-- <a href="https://de.wikipedia.org/wiki/Lychrel-Zahl" target="_blank"  >
+            Mehr dazu bei Wikipedia
+        </a> -->
+    </p>
+
+    <!-- <p id="ausgabe">
+        
+    </p> -->
+    
+    <table id="ausgabe">
+
+    </table>
+
+
+
+  </body>
+
+</html>

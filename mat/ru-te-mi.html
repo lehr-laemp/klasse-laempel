@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Runden - Teiler - Mittelwert
+        </title>
+        <meta charset='utf-8'>
+        <meta name='author' content='Hansruedi Meyer'>
+
+
+        <style>
+            body {
+                background-color:  white;
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 120%;
+                line-height: 1.4;
+                padding: 10px
+            }
+            h1 {
+                font-size: 200%;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            p {
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 120%;
+            }
+            table {
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 120%;
+                }
+            td:nth-of-type(1){
+                text-align: left;
+                }
+            td:nth-of-type(2){
+                text-align:right;
+                }
+            input[type=text] {
+                width: 20%;
+                padding: 8px 8px;
+                margin: 8px 0;
+                box-sizing: border-box;
+                font-size: 120%;
+            }
+
+            input[type=button] {
+                background-color: lightgray;
+                border: none;
+                color: black;
+                padding: 8px 8px;
+                text-decoration: none;
+                margin: 8px 2px;
+                cursor: pointer;
+                font-size: 120%;
+            }
+            #Ziel {
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 80%;
+            }
+
+        </style>
+
+        <!-- ******* script ************************ -->
+
+        <script>
+
+            // Focus auf input-Feld
+            window.onload = function() {
+                document.getElementById("abfrage").focus();
+            };
+
+            var summe_teiler = 0; // alle Teiler werden summiert
+            var teiler_anzahl = 0; // wie viele Teiler gibt es total
+
+            function teilbar(eingabe_zahl) {
+                // Kontrolliert, ob 2, 3, 4, 5, 6, 9, 10 Teiler von ganze_zahl sind
+                
+
+                var teiler_liste = '';
+                var ganze_zahl = parseInt(eingabe_zahl);
+
+                if (ganze_zahl % 2 == 0) {
+                    teiler_liste = teiler_liste + '2';
+                    summe_teiler += 2;
+                    teiler_anzahl ++;
+                } else {
+                    teiler_liste = teiler_liste + '<del style="color:White";>2</del>';
+                }
+
+                if (ganze_zahl % 3 == 0) {
+                    teiler_liste = teiler_liste + '&nbsp; &nbsp; 3';
+                    summe_teiler += 3;
+                    teiler_anzahl ++;
+                } else {
+                    teiler_liste = teiler_liste + '&nbsp; &nbsp; <del style="color:White";>3</del>';
+                }
+
+                if (ganze_zahl%4 == 0) {
+                    teiler_liste = teiler_liste + '&nbsp; &nbsp; 4';
+                    summe_teiler += 4;
+                    teiler_anzahl ++;
+                } else {
+                    teiler_liste = teiler_liste + '&nbsp; &nbsp; <del style="color:White";>4</del>';
+                }
+
+                if (ganze_zahl % 5 == 0) {
+                    teiler_liste = teiler_liste + '&nbsp; &nbsp; 5';
+                    summe_teiler += 5;
+                    teiler_anzahl ++;
+                } else {
+                    teiler_liste = teiler_liste + '&nbsp; &nbsp; <del style="color:White";>5</del>';
+                }
+
+                if (ganze_zahl % 6 == 0) {
+                    teiler_liste = teiler_liste + '&nbsp; &nbsp; 6';
+                    summe_teiler += 6;
+                    teiler_anzahl ++;
+                } else {
+                    teiler_liste = teiler_liste + '&nbsp; &nbsp; <del style="color:White";>6</del>';
+                }
+
+                if (ganze_zahl % 9 == 0) {
+                    teiler_liste = teiler_liste + '&nbsp; &nbsp; 9';
+                    summe_teiler += 9;
+                    teiler_anzahl ++;
+                } else {
+                    teiler_liste = teiler_liste + '&nbsp; &nbsp; <del style="color:White";>9</del>';
+                }
+
+                if (ganze_zahl % 10 == 0) {
+                    teiler_liste = teiler_liste + '&nbsp; &nbsp; 10';
+                    summe_teiler += 10;
+                    teiler_anzahl ++;
+                } else {
+                    teiler_liste = teiler_liste + '&nbsp; &nbsp; <del style="color:White";>10</del>';
+                }
+
+                //console.log(summe_teiler);
+                //console.log(teiler_anzahl);
+                return teiler_liste;
+
+            }
+
+            function rechnen() {
+
+                // Variablen
+                var gewaehlte_zahl = document.getElementById('abfrage').value;
+                var AUSGABE = '';
+                var zahl_gerundet_zehner = 0;
+                var zahl_gerundet_hunderter = 0;
+                var zahl_gerundet_tausender = 0;
+                var durchschnitt = 0.0;
+
+
+
+                // gewählte Zahl mit Teiler ausgeben
+                // Deine Zahl ist: 3456. Sie hat die Teiler: 2 4 6
+                // Gerundet auf Zehner: 3460. Sie hat die Teiler: 234
+                //AUSGABE += '<tr> <td>' + gewaehlte_zahl + ' &nbsp &nbsp ' + '</td> <td> ' + zahlfolge + ': &nbsp &nbsp ' +'</td> <td> ' + ziffer1 +
+                //    ' &#8729 ' + zifferRest + ' = ' + hilfszahl +   '</td> </tr> '
+
+                // Ausgabe 1: die Zahl selber:
+                AUSGABE += '<tr> <td> Deine Zahl ist: </td> <td> &nbsp; &nbsp;' + gewaehlte_zahl + '</td><td>' +
+                        '. &nbsp; &nbsp; Sie hat die Teiler: </td> <td> &nbsp; &nbsp;' + teilbar(gewaehlte_zahl) + '</td> </tr>';
+
+                // Ausgabe 2: Zahl auf 10er gerundet:
+                zahl_gerundet_zehner = Math.round(gewaehlte_zahl/10)*10;
+
+                AUSGABE += '<tr> <td> Auf Zehner gerundet: </td> <td> &nbsp; &nbsp;' + zahl_gerundet_zehner + '</td><td>' +
+                        '. &nbsp; &nbsp; Sie hat die Teiler: </td> <td> &nbsp; &nbsp;' + teilbar(zahl_gerundet_zehner) + '</td> </tr>';
+
+                // Ausgabe 3: Zahl auf 100er gerundet:
+                zahl_gerundet_hunderter = Math.round(gewaehlte_zahl/100)*100;
+
+                AUSGABE += '<tr> <td> Auf Hunderter gerundet: </td> <td> &nbsp; &nbsp;' + zahl_gerundet_hunderter + '</td><td>' +
+                        '. &nbsp; &nbsp; Sie hat die Teiler: </td> <td> &nbsp; &nbsp;' + teilbar(zahl_gerundet_hunderter) + '</td> </tr>';
+
+                // Ausgabe 4: Zahl auf 1000er gerundet:
+                zahl_gerundet_tausender = Math.round(gewaehlte_zahl/1000)*1000;
+
+                AUSGABE += '<tr> <td> Auf Tausender gerundet: </td> <td> &nbsp; &nbsp;' + zahl_gerundet_tausender + '</td><td>' +
+                        '. &nbsp; &nbsp; Sie hat die Teiler: </td> <td> &nbsp; &nbsp;' + teilbar(zahl_gerundet_tausender) + '</td> </tr>';
+
+                // Ausgabe 5: Durchschnitt der 4 Zahlen:
+                durchschnitt = (parseInt(gewaehlte_zahl) + parseInt(zahl_gerundet_zehner) +
+                        parseInt(zahl_gerundet_hunderter) + parseInt(zahl_gerundet_tausender))/4;
+
+                AUSGABE += '<tr> <td> Mittelwert der Zahlen: </td> <td> &nbsp; &nbsp;' + durchschnitt + '</td><td>' +
+                        '. &nbsp; &nbsp; </td> <td> &nbsp; &nbsp;'  +  '</td> </tr>';
+
+                // Ausgabe 6: Durchschnitt aller Teiler_suchen
+                AUSGABE += '<tr> <td> Mittelwert der Teiler: </td> <td> &nbsp; &nbsp;' + summe_teiler + ' : ' + teiler_anzahl + ' &cong; ' +
+                        Math.round(summe_teiler/teiler_anzahl*10)/10 + '</td><td>' + '. &nbsp; &nbsp; </td> <td> &nbsp; &nbsp;'  +  '</td> </tr>';
+
+
+                // Ausgabe
+                document.getElementById('ausgabe').innerHTML = AUSGABE;
+
+                // Feld löschen
+                document.getElementById('abfrage').value = '';
+                summe_teiler = 0;
+                teiler_anzahl = 0;
+
+
+                return;
+
+            } // Ende rechnen()
+
+            // Rechnet bei Enter
+            function testEnter (e) {
+                var characterCode = 0;
+
+                if (e && e.which) {
+                    characterCode = e.which;
+                } else {
+                    characterCode = e.keyCode;
+                }
+
+                if (characterCode == 13) {
+                    rechnen();
+                }
+
+            }
+
+
+        </script>
+
+    </head>
+    <body>
+
+        <h1>Runden, Teiler suchen und Mittelwert bestimmen</h1>
+
+        <p id='Ziel'>
+            &#9679; Zahlen runden <br>
+            &#9679; untersuchen, ob eine Zahl durch 2, 3, 4, 5, 6, 9 oder 10 teilbar ist <br>
+            &#9679; den Mittelwert von Zahlen berechnen
+        </p>
+
+        <ul>
+            <li>Wähle eine Zahl mit 3 oder 4 Ziffern: <em>1468</em>.</li>
+            <li>Bestimme ihre Teiler: <em>1468 ist durch 2 und 4 teilbar</em>.</li>
+            <li>Runde die Zahl auf die Zehner: <em>1468 &rarr; 1470</em>. </li>
+            <li>Bestimme die Teiler der gerundeten Zahl: <em>1470 ist durch 2, 3, 5, 6, 10 teilbar</em>.</li>
+            <li>Runde die Zahl auf die Hunderter: <em>1468 &rarr; 1500</em>. </li>
+            <li>Bestimme die Teiler der gerundeten Zahl: <em>1500 ist durch 2, 3, 4, 5, 6, 10 teilbar</em>.</li>
+            <li>Runde die Zahl auf die Tausender: <em>1468 &rarr; 1000</em>.</li>
+            <li>Bestimme die Teiler der gerundeten Zahl: <em>1000 ist durch 2, 4, 5, 10 teilbar</em>.</li>
+            <li>Bestimme den Mittelwert dieser 4 Zahlen: <em>1468 + 1470 + 1500 + 1000 = 5438, 5438 : 4 = 1359.5</em>.</li>
+            <li>Bestimme den Mittelwert aller Teiler, notiere nur die Berechnung: <em>83 : 17 (&cong; 4.9)</em>.</li>
+        </ul>
+
+
+     <!-- 1. Zahl eingeben -->
+    <input type='text' id='abfrage' placeholder='123' onkeypress='testEnter(event)'>
+    <input type='button' value='Rechne' onclick='rechnen()'>
+
+
+
+    <table id='ausgabe'>
+
+    </table>
+
+
+    </body>
+</html>
