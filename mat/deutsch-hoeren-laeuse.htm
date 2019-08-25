@@ -1,0 +1,113 @@
+ <!DOCTYPE html>
+<html>
+<head>
+    <title>Klasse Lämpel: Hören und verstehen</title>
+    <link rel="stylesheet" type="text/css" href="mystyle.css">
+    <meta charset="UTF-8">
+    <meta name="description" content="Link-Sammlung">
+    <meta name="author" content="Hansruedi Meyer, Schule Neuhausen">
+</head>
+<body>
+
+<h1 id="meinTitel">Klasse Lämpel: Hören und verstehen <a href="../index.htm"><img src="home.png" alt="zurück" style="float:right; width: 5%"></a></h1>
+
+<div id="deutsch">
+    <figure style="float:right;">
+        <img src="laempel.jpg" alt="Lehrer Lämpel">
+        <figcaption>Lehrer Lämpel: "Nicht allein das A-B-C
+        bringt den Menschen in die Höh. ... Sondern auch der Weisheit Lehren muss man mit Vergnügen hören."</figcaption>
+    </figure>
+
+    <!-- ======================================================== -->
+    
+    <h3>Alles über Läuse</h3>
+
+    <p id="hinweis">gefunden bei Figarino Webchannel</p>
+
+        <audio controls>
+            <source src="ueber-Laeuse.ogg" type="audio/ogg">
+            <source src="ueber-Laeuse.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+
+    <h5>Fragen:</h4>
+        <ol>
+            <li>Wie heissen die ersten Kinder, die vorkommen?
+                <br>
+                <div id="antwort">Jonathan, Lili</div></li>
+            <li>Warum juckt es, wenn du Läuse hast?
+                <br>
+                <div id="antwort">Sie beissen, um Blut zu trinken. Dabei übertragen sie etwas Laus-Flüssigkeit,
+                die wir nicht gut vertragen. Es entsteht eine kleine Entzündung.</div></li>
+            <li>Was weisst du über Läuse (mindestens 4 Dinge)?
+                <br>
+                <div id="antwort">braun-schwarz; Insekten; flink; sie leben am liebsten hinter den
+                Ohren, wo es warm ist</div> </li>
+            <li>Wie heissen die Laus-Eier? 
+                <br>
+                <div id="antwort">Nissen</div></li>
+            <li>Wo sind die Laus-Eier genau? 
+                <br>
+                <div id="antwort">Die Läuse kleben ihre Eier an die Haar-Wurzeln (Schaft)</div></li>
+            <li>Was ist der Unterschied zwischen Eiern und Haar-Schuppen? 
+                <br>
+                <div id="antwort">Schuppen sind leicht und gehen gut weg — Laus-Eier nicht</div>
+                </li>
+            <li>Wie kann man die Läuse loswerden? 
+                <br>
+                <div id="antwort">Mit einem Medikament: Man muss die Haar und die Kopfhaut damit befeuchten und
+                einwirken lassen („Fernseher gucken und eine Tüte auf dem Kopf”)</div></li>
+            <li>Muss man die Haare abschneiden? 
+                <br>
+                <div id="antwort">Wenn es ganz viele Läuse und Nissen hat und das Medikament nicht hilft, dann schon.</div>
+                </li>
+            <li>Wie bekommst du Läuse? 
+                <br>
+                <div id="antwort">Wen jemand Läuse hat — vielleicht durch eine Berührung oder über den Boden, …</div></li>
+            <li>Muss man sich schämen, wenn man Läuse hat? 
+                <br>
+                <div id="antwort">Nicht, du kannst ja nichts dafür, dass du irgendwo Läuse aufgelesen hast.</div>
+                </li>
+            <li>Wie heisst die Sendung? 
+                <br>
+                <div id="antwort">Figarino - Kinderradio</div></li>
+        </ol>
+
+        <button class="button" type="button" onclick=zeigenAntwort() ">Lösungen</button>
+        
+        
+        
+</div>
+
+
+<div id="space">
+    <p>Hier steht nur etwas in weiss, als Abstandhalter</p>
+</div>
+
+<div id="footer">
+    <p>
+        <script>
+            var date = document.lastModified;
+            var datum = new Date(date);
+            document.write("Geändert am: " + datum.toLocaleDateString() + "&emsp;");
+        </script>
+
+        <a href="about.htm">von HM</a>
+
+    </p>
+</div>
+
+<script>
+    function zeigenAntwort() {
+        //alert("Hallo zeigenAntwort");
+        var x = document.querySelectorAll("#antwort");
+        var i;
+        for (i = 0; i < x.length; i++) {
+            x[i].style.visibility = "visible";
+        }
+    }
+</script>
+
+
+</body>
+</html> 
