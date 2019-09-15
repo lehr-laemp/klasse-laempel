@@ -1,0 +1,110 @@
+ <!DOCTYPE html>
+<html>
+<head>
+    <title>Klasse Lämpel: Hören und verstehen</title>
+    <link rel="stylesheet" type="text/css" href="mystyle.css">
+    <meta charset="UTF-8">
+    <meta name="description" content="Link-Sammlung">
+    <meta name="author" content="Hansruedi Meyer, Schule Neuhausen">
+</head>
+<body>
+
+<h1 id="meinTitel">Klasse Lämpel: Hören und verstehen <a href="../index.htm"><img src="home.png" alt="zurück" style="float:right; width: 5%"></a></h1>
+
+<div id="deutsch">
+    <figure style="float:right;">
+        <img src="laempel.jpg" alt="Lehrer Lämpel">
+        <figcaption>Lehrer Lämpel: "Nicht allein das A-B-C
+        bringt den Menschen in die Höh. ... Sondern auch der Weisheit Lehren muss man mit Vergnügen hören."</figcaption>
+    </figure>
+
+    <!-- ======================================================== -->
+    
+    <a href="https://www.srf.ch/sendungen/myschool/odyssee-animiert" target="_blank">
+    <h3>Die Odyssee - animiert, bei SRF mySchool</h3></a>
+
+    <h5>Fragen zu den Teilen 5 bis 9:</h4>
+        <ol>
+            <li>Wie heisst der Windgott?
+                <br>
+                <div id="antwort">Aiolos</div></li>
+            <li>Was ist das Geschenk des Gottes an Odysseus?
+                <br>
+                <div id="antwort">Ein Schlauch, in dem alle ungünstigen Winde eingeschlossen sind. 
+                    So können sie gut nach Hause segeln.
+                </div></li>
+            <li>Warum öffnen die Griechen dieses Geschenk?
+                <br>
+                <div id="antwort">Aus Neid. Sie denken, Odysseus will alles für sich behalten.</div> </li>
+            <li>Was passiert, als sie das Geschenk öffnen?
+                <br>
+                <div id="antwort">Es gibt einen gewaltigen Sturm und sie werden zurück aufs Meer getrieben.</div></li>
+            <li>Sie kommen wieder auf die Insel des Windgottes. Doch der schickt sie weg ohne ihnen zu helfen. Warum?
+                <br>
+                <div id="antwort">Er hat Angst, dass die anderen Götter böse auf ihn werden, wenn er den Griechen hilft.</div></li>
+            <li>Sie kommen zu den Laistrygonen. Was weisst du über sie?
+                <br>
+                <div id="antwort">Es sind Riesen, die Menschen fressen. 
+                    Sie können fast alle Griechen einfangen und nur ein Schiff kann entkommen. </div>
+                </li>
+            <li>Dann kommen sie zu Kirke. In was werden die Griechen verwandelt?
+                <br>
+                <div id="antwort">in Schweine</div></li>
+            <li>Warum wird Odysseus nicht verwandelt?
+                <br>
+                <div id="antwort">Er hat vom Gott Hermes ein Gegenmittel bekommen.</div>
+                </li>
+            <li>Wie lange bleiben sie auf der Insel?
+                <br>
+                <div id="antwort">1 Jahr</div></li>
+            <li>Wo ist der Eingang zur Unterwelt?
+                <br>
+                <div id="antwort">Am Rand der Erde, am Ende des Meeres.</div>
+                </li>
+
+            <li>Was sagt der Hellseher für die Zukunft voraus?
+                <br>
+                <div id="antwort">Die schlechte Nachricht: Poseidon ist immer noch böse und wird sie lange von zu Hause fernhalten.
+                    <br>Die gute Nachricht: Seine Frau wartet noch auf Odysseus und er wird wieder über sein Land herrschen.
+                </div></li>
+
+        </ol>
+
+        <button class="button" type="button" onclick=zeigenAntwort() ">Lösungen</button>
+        
+        
+        
+</div>
+
+
+<div id="space">
+    <p>Hier steht nur etwas in weiss, als Abstandhalter</p>
+</div>
+
+<div id="footer">
+    <p>
+        <script>
+            var date = document.lastModified;
+            var datum = new Date(date);
+            document.write("Geändert am: " + datum.toLocaleDateString() + "&emsp;");
+        </script>
+
+        <a href="about.htm">von HM</a>
+
+    </p>
+</div>
+
+<script>
+    function zeigenAntwort() {
+        //alert("Hallo zeigenAntwort");
+        var x = document.querySelectorAll("#antwort");
+        var i;
+        for (i = 0; i < x.length; i++) {
+            x[i].style.visibility = "visible";
+        }
+    }
+</script>
+
+
+</body>
+</html> 
