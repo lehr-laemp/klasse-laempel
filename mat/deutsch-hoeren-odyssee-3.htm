@@ -1,0 +1,115 @@
+ <!DOCTYPE html>
+<html>
+<head>
+    <title>Klasse Lämpel: Hören und verstehen</title>
+    <link rel="stylesheet" type="text/css" href="mystyle.css">
+    <meta charset="UTF-8">
+    <meta name="description" content="Link-Sammlung">
+    <meta name="author" content="Hansruedi Meyer, Schule Neuhausen">
+</head>
+<body>
+
+<h1 id="meinTitel">Klasse Lämpel: Hören und verstehen <a href="../index.htm"><img src="home.png" alt="zurück" style="float:right; width: 5%"></a></h1>
+
+<div id="deutsch">
+    <figure style="float:right;">
+        <img src="laempel.jpg" alt="Lehrer Lämpel">
+        <figcaption>Lehrer Lämpel: "Nicht allein das A-B-C
+        bringt den Menschen in die Höh. ... Sondern auch der Weisheit Lehren muss man mit Vergnügen hören."</figcaption>
+    </figure>
+
+    <!-- ======================================================== -->
+    
+    <a href="https://www.srf.ch/sendungen/myschool/odyssee-animiert" target="_blank">
+    <h3>Die Odyssee - animiert, bei SRF mySchool</h3></a>
+
+    <h5>Fragen zu den Teilen 1 bis 4:</h4>
+        <ol>
+            <li>Wo kämpfen die Griechen?
+                <br>
+                <div id="antwort">in Troja</div></li>
+            <li>Wozu bauen sie ein Pferd aus Holz?
+                <br>
+                <div id="antwort">Es ist eine Falle: Drinnen sind Griechen. 
+                    In der Nacht steigen sie aus dem Pferd und können so die Stadt zerstören.</div></li>
+            <li>Mit wie vielen Schiffen fährt Odysseus weg?
+                <br>
+                <div id="antwort">mit 12 Schiffen</div> </li>
+            <li>Wer macht den Sturm?
+                <br>
+                <div id="antwort">Der Gott Zeus</div></li>
+            <li>Was essen sie auf der ersten Insel?
+                <br>
+                <div id="antwort">Lotus-Früchte</div></li>
+            <li>Was passiert, wenn man das isst?
+                <br>
+                <div id="antwort">Man vergisst alles und will dort bleiben.</div>
+                </li>
+            <li>Was machen die Griechen in der Höhle?
+                <br>
+                <div id="antwort">Sie essen und trinken von den Vorräten.</div></li>
+            <li>Was weisst du über den Riesen?
+                <br>
+                <div id="antwort">Er heisst Polyphem, hat ein Auge, isst Menschen, gehört zu den Cyclopes.</div>
+                </li>
+            <li>Was machen die Griechen, damit sie der Riese nicht auffrisst?
+                <br>
+                <div id="antwort">Sie verstecken sich, machen ihn betrunken und als er schläft, stechen sie ihm das Auge aus.</div></li>
+            <li>Wie kommen sie aus der Höhle?
+                <br>
+                <div id="antwort">Sie hängen sich an die Bäuche von Schafen, damit Polyphem sie nicht ertasten kann.</div>
+                </li>
+
+            <li>Wer ist der Vater des Riesen?
+                <br>
+                <div id="antwort">Poseidon</div></li>
+
+            <li>Was will der Riese, das sein Vater macht?
+                <br>
+                <div id="antwort">Er soll ihn rächen.</div>
+            </li>
+            
+            <li>Was macht der Vater als "Beruf"?
+                <br>
+                <div id="antwort">Er ist der Gott des Meeres.</div>
+            </li>
+        </ol>
+
+        <button class="button" type="button" onclick=zeigenAntwort() ">Lösungen</button>
+        
+        
+        
+</div>
+
+
+<div id="space">
+    <p>Hier steht nur etwas in weiss, als Abstandhalter</p>
+</div>
+
+<div id="footer">
+    <p>
+        <script>
+            var date = document.lastModified;
+            var datum = new Date(date);
+            document.write("Geändert am: " + datum.toLocaleDateString() + "&emsp;");
+        </script>
+
+        <a href="about.htm">von HM</a>
+
+    </p>
+</div>
+
+<script>
+    function zeigenAntwort() {
+        //alert("Hallo zeigenAntwort");
+        var x = document.querySelectorAll("#antwort");
+        var i;
+        for (i = 0; i < x.length; i++) {
+            x[i].style.visibility = "visible";
+        }
+    }
+</script>
+
+
+</body>
+</html> 
