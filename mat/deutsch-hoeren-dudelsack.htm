@@ -1,0 +1,116 @@
+ <!DOCTYPE html>
+<html>
+<head>
+    <title>Klasse Lämpel: Hören und verstehen</title>
+    <link rel="stylesheet" type="text/css" href="mystyle.css">
+    <meta charset="UTF-8">
+    <meta name="description" content="Link-Sammlung">
+    <meta name="author" content="Hansruedi Meyer, Schule Neuhausen">
+</head>
+<body>
+
+<h1 id="meinTitel">Klasse Lämpel: Hören und verstehen <a href="../index.htm"><img src="home.png" alt="zurück" style="float:right; width: 5%"></a></h1>
+
+<div id="deutsch">
+    <figure style="float:right;">
+        <img src="laempel.jpg" alt="Lehrer Lämpel">
+        <figcaption>Lehrer Lämpel: "Nicht allein das A-B-C
+        bringt den Menschen in die Höh. ... Sondern auch der Weisheit Lehren muss man mit Vergnügen hören."</figcaption>
+    </figure>
+
+    <!-- ======================================================== -->
+    
+    <h3>Was ist Sprache?</h3>
+
+    <p id="hinweis">gefunden bei Figarino Webchannel</p>
+
+        <audio controls>
+            <source src="sprache.ogg" type="audio/ogg">
+            <source src="sprache.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+
+    <h5>Fragen:</h4>
+        <ol>
+            <li>Wo spielt das ganz? 
+                <br>
+                <div id="antwort">Leibzig, Max Planck Institut</div></li>
+            <li>Wie heisst der Junge? Wie alt ist er? 
+                <br>
+                <div id="antwort">Er heisst August und ist 7 Jahre alt</div></li>
+            <li>Wie wird das Gehirn „gemessen”? 
+                <br>
+                <div id="antwort">Mit einem Haarnetz aus Elektroden</div> </li>
+            <li>Was misst man eigentlich im Gehirn? 
+                <br>
+                <div id="antwort">Elektrische Impulse</div></li>
+            <li>Welche Sprache hört der Junge?
+                <br>
+                <div id="antwort">Italienisch</div></li>
+            <li>Was muss er zuerst machen, damit er diese Sprache verstehst?
+                <br>
+                <div id="antwort">Er muss einzelne Worte heraushören und sie wieder erkennen.</div>
+                </li>
+            <li>Was ist schwierig, wenn wir eine neue Sprache lernen? 
+                <br>
+                <div id="antwort">Die Sprache ist wie ein Fluss aus Lauten, es ist schwierig, Pausen
+                und Wortgrenzen herauszuhören)</div></li>
+            <li>Wie heisst der Wissenschaftler, der spricht? 
+                <br>
+                <div id="antwort">Jens Brauer</div>
+                </li>
+            <li>Wie lernt das Baby die Sprache? 
+                <br>
+                <div id="antwort">Durch nachahmen und nachmachen</div></li>
+            <li>Wie konnte man herausfinden, dass Babys so die Sprache lernen? 
+                <br>
+                <div id="antwort">Babys schreien je nach Sprache unterschiedlich</div>
+                </li>
+            <li>Welche Hirnhälfte brauchen wir für die Sprache? Warum? 
+                <br>
+                <div id="antwort">Lautzentrum links hört Laute und setzt sie zu Buchstaben und
+                Wörter zusammen</div></li>
+            <li>Warum hat man Sprache erfunden? 
+                <br>
+                <div id="antwort">Weil die Menschen in grösseren Gruppen 
+                    zusammenlebten und das wäre ohne Sprache nicht möglich gewesen</div></li>
+        </ol>
+
+        <button class="button" type="button" onclick=zeigenAntwort() ">Lösungen</button>
+        
+        
+        
+</div>
+
+
+<div id="space">
+    <p>Hier steht nur etwas in weiss, als Abstandhalter</p>
+</div>
+
+<div id="footer">
+    <p>
+        <script>
+            var date = document.lastModified;
+            var datum = new Date(date);
+            document.write("Geändert am: " + datum.toLocaleDateString() + "&emsp;");
+        </script>
+
+        <a href="about.htm">von HM</a>
+
+    </p>
+</div>
+
+<script>
+    function zeigenAntwort() {
+        //alert("Hallo zeigenAntwort");
+        var x = document.querySelectorAll("#antwort");
+        var i;
+        for (i = 0; i < x.length; i++) {
+            x[i].style.visibility = "visible";
+        }
+    }
+</script>
+
+
+</body>
+</html> 
