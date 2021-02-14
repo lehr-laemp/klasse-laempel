@@ -52,6 +52,11 @@ figcaption {
    font-size: 50%;
 }
 
+#text {
+  padding: 1cm;
+  width: 70%;
+}
+
 #space {
   color: white;
   background-color: white;
