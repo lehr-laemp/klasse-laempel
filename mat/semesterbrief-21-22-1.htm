@@ -1,18 +1,66 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
+
 <head>
-    <title>Semesterbrief</title>
-    <link rel="stylesheet" type="text/css" href="mystyle.css">
-    <meta charset="UTF-8">
-    <meta name="description" content="Link-Sammlung">
-    <meta name="author" content="Hansruedi Meyer, Schule Neuhausen">
+
+<!-- Das wird als Fenstertitel angezeigt -->
+<title>
+Semesterbrief GW 1
+
+</title>
+
+<meta charset="UTF-8">
+<meta name="description" content="Informationen">
+<meta name="description" content="Schule Neuhausen">
+
+<!-- Hier kann der Autor geändert werden -->
+<meta name="author" content="Hansruedi Meyer">
+
+<style>
+    body {
+    width: 70%;
+    margin: auto;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 150%;
+    margin-top: 15%;
+    margin-bottom: 10%;
+    }
+    #header {
+        position: fixed;
+        padding: auto;
+        padding-top: 5%;
+        overflow: hidden;
+        top:0%;
+        background-color: white;
+        width: 70%;
+    }
+    #datum {
+        font-size: 60%;
+    }
+    
+</style>
+
 </head>
+<!-- ============================================ -->
 <body>
 
-<h1 id="meinTitel">Semesterbrief 2021/2022 - 1</h1>
+<!-- ============================================ -->
+<div id="header">
+<h1>
+<!-- Hier ist der Titel des Textes  -->
+Semesterbrief 2021/22
 
 <img src="briefkopf.png" alt="Briefkopf Neuhausen" style="float:right; width:30%;height:30%;">
 
+</h1>
+</div>
+
+<!-- Datum -->
+<div id="datum">
+    im August 2021
+</div>
+
+<!-- ============================================ -->
 
 <div id="google_translate_element"></div>
 
@@ -26,19 +74,16 @@ function googleTranslateElementInit() {
 
 <div id="text">
 
+<!-- ============================================ -->
+
+
+<!-- ein Abschnitt beginnt mit <p> und endet mit </p> -->
+<!-- und ein neue Linie macht man mit <br> -->
+
 <p>
 Liebe Eltern, liebe Erziehungsberechtigte
 
 <h2>Rückblick</h2>
-
-
-
-
-
-
-
-
-
 
     <p>Nach den Sportferien sind wir alle vorsichtig ins neue Semester gestartet. <br>
     Diese Vorsicht hat unsere Arbeit täglich begleitet und war nicht immer einfach auszuhalten.
@@ -66,6 +111,7 @@ Liebe Eltern, liebe Erziehungsberechtigte
     200 Schüler x 20 Wochen x 30 Lektionen x 40 Minuten = 4,8 Millionen Lernmöglichkeiten. <br>
     Wenn es uns gelingt, diese 4,8 Millionen Lernmomente gut zu nutzen, dann wird unsere Schule zu einer guten Schule.
     </p>
+</p>
 
 <h2>Ausblick</h2>
 	
@@ -110,24 +156,7 @@ Liebe Eltern, liebe Erziehungsberechtigte
     </p>
     <p>Herzliche Grüsse <br>
         Hansruedi Meyer</p>
-</div>
-
-  
-<div id="space">
-    <p>Hier steht nur etwas in weiss, als Abstandhalter</p>
-</div>
-
-<div id="footer">
-    <p>
-        <script>
-            var date = document.lastModified;
-            var datum = new Date(date);
-            document.write("Geändert am: " + datum.toLocaleDateString() + "&emsp;");
-        </script>
-
-        <a href="about.htm">von HM</a>
-
-    </p>
+</p>        
 </div>
 
 
