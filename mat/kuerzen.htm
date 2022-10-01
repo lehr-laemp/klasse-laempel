@@ -1,0 +1,220 @@
+ <!DOCTYPE html>
+<html>
+<head>
+    <title>Klasse Lämpel: Mathe</title>
+    <link rel="stylesheet" type="text/css" href="mystyle.css">
+    <meta charset="UTF-8">
+    <meta name="description" content="Link-Sammlung">
+    <meta name="author" content="Hansruedi Meyer, Schule Neuhausen">
+</head>
+
+<h1 id="meinTitel">Klasse Lämpel: Mathe-Training 
+    <a href="../index.htm"><img src="home.png" alt="zurück" style="float:right; width: 5%"></a>
+</h1>
+
+<p id="aufgaben"></p>
+
+<!-- ======================================================== -->
+<script>
+    
+    // Aufgaben und Lösungen, immer als "String"
+    const aufgaben = [
+    ["2/12","1/6"],
+["6/20","3/10"],
+["3/6","1/2"],
+["15/18","5/6"],
+["2/24","1/12"],
+["5/10","1/2"],
+["3/15","1/5"],
+["12/15","4/5"],
+["42/60","7/10"],
+["3/9","1/3"],
+["12/40","3/10"],
+["18/60","3/10"],
+["5/40","1/8"],
+["6/8","3/4"],
+["4/20","1/5"],
+["30/36","5/6"],
+["6/48","1/8"],
+["2/8","1/4"],
+["6/12","1/2"],
+["6/24","1/4"],
+["20/32","5/8"],
+["9/24","3/8"],
+["28/40","7/10"],
+["20/24","5/6"],
+["12/16","3/4"],
+["4/32","1/8"],
+["3/24","1/8"],
+["8/12","2/3"],
+["2/20","1/10"],
+["15/24","5/8"],
+["6/18","1/3"],
+["2/10","1/5"],
+["15/40","3/8"],
+["10/16","5/8"],
+["8/20","2/5"],
+["12/18","2/3"],
+["45/50","9/10"],
+["10/15","2/3"],
+["20/25","4/5"],
+["28/32","7/8"],
+["14/20","7/10"],
+["12/32","3/8"],
+["27/30","9/10"],
+["6/60","1/10"],
+["21/30","7/10"],
+["3/12","1/4"],
+["4/24","1/6"],
+["5/60","1/12"],
+["35/40","7/8"],
+["16/20","4/5"],
+["3/30","1/10"],
+["2/4","1/2"],
+["35/50","7/10"],
+["15/20","3/4"],
+["18/24","3/4"],
+["12/20","3/5"],
+["6/9","2/3"],
+["6/36","1/6"],
+["4/12","1/3"],
+["9/30","3/10"],
+["5/15","1/3"],
+["15/50","3/10"],
+["12/30","2/5"],
+["8/10","4/5"],
+["24/30","4/5"],
+["3/18","1/6"],
+["30/48","5/8"],
+["18/30","3/5"],
+["15/25","3/5"],
+["4/10","2/5"],
+["6/30","1/5"],
+["25/30","5/6"],
+["6/15","2/5"],
+["5/50","1/10"],
+["2/6","1/3"],
+["21/24","7/8"],
+["5/25","1/5"],
+["36/40","9/10"],
+["5/20","1/4"],
+["10/12","5/6"],
+["14/16","7/8"],
+["42/48","7/8"],
+["54/60","9/10"],
+["2/16","1/8"],
+["10/25","2/5"],
+["10/24","5/12"],
+["6/16","3/8"],
+["9/12","3/4"],
+["42/72","7/12"],
+["25/60","5/12"],
+["18/20","9/10"],
+["15/36","5/12"],
+["4/48","1/12"],
+["9/15","3/5"],
+["4/8","1/2"],
+["6/10","3/5"],
+["4/6","2/3"],
+["6/72","1/12"],
+["25/40","5/8"],
+["21/36","7/12"],
+["18/48","3/8"],
+["28/48","7/12"],
+["4/40","1/10"],
+["4/16","1/4"],
+["5/30","1/6"], 
+                    ];
+
+    let aufgaben_laenge = aufgaben.length;
+
+    // Array zufällig mischen
+    for (let i = aufgaben_laenge -1; i > 0; i--) {
+    let j = Math.floor(Math.random() * i)
+    let k = aufgaben[i]
+    aufgaben[i] = aufgaben[j]
+    aufgaben[j] = k
+    }
+
+    // Titel der Aufgaben-Sammlung
+    let text = "<h2>Brüche kürzen  </h2>";
+
+    // Beschreibung
+    text += "<p>Kürze die Brüche möglichst vollständig.<br>Löse 10 bis 20 Aufgaben.</p>"
+
+    // Anzahl Aufgaben
+    text += "<p>Es sind " + aufgaben_laenge + " Aufgaben. </p>"
+
+    // Erklärung der Funktionsweise
+    text += // Karte Vorderseite
+            "<div class=\"flip-box\">" +
+            "<div class=\"flip-box-inner\">" +
+            "<div class=\"flip-box-front\">" +
+            "<h4>" + 
+            "Anleitung: <br>Drücke auf die Karte" + 
+            "</h4>" +
+            "</div>" + 
+            // Karte Rückseite
+            "<div class=\"flip-box-back\">" +
+            "<h4>" +
+            "Jetzt siehst du die Lösung" + 
+            "</h4>" +
+            "</div>" +
+            "</div>" +
+            "</div>" +
+            // Abstand
+            "<div id=\"space\">" +
+            "<p>Hier steht nur etwas in weiss, als Abstandhalter</p>" +
+            "</div>";
+    
+    // Karten für alle Aufgaben          
+    for (let i = 0; i < aufgaben_laenge; i++) {
+    text += // Karte Vorderseite
+            "<div class=\"flip-box\">" +
+            "<div class=\"flip-box-inner\">" +
+            "<div class=\"flip-box-front\">" +
+            "<h4>" + 
+            aufgaben[i][0] + 
+            "</h4>" +
+            "</div>" + 
+            // Karte Rückseite
+            "<div class=\"flip-box-back\">" +
+            "<h4>" +
+            aufgaben[i][1] + 
+            "</h4>" +
+            "</div>" +
+            "</div>" +
+            "</div>" +
+            // Abstand
+            "<div id=\"space\">" +
+            "<p>Hier steht nur etwas in weiss, als Abstandhalter</p>" +
+            "</div>";
+
+    }
+    
+    document.getElementById("aufgaben").innerHTML = text;
+    //console.log(text)
+
+    
+</script>
+
+<div id="space">
+    <p>Hier steht nur etwas in weiss, als Abstandhalter</p>
+</div>
+
+<div id="footer">
+    <p>
+        <script>
+            var date = document.lastModified;
+            var datum = new Date(date);
+            document.write("Geändert am: " + datum.toLocaleDateString() + "&emsp;");
+        </script>
+
+        <a href="about.htm">von HM</a>
+
+    </p>
+</div>
+
+
+</body>
+</html> 

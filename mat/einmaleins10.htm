@@ -1,0 +1,203 @@
+ <!DOCTYPE html>
+<html>
+<head>
+    <title>Klasse Lämpel: Mathe</title>
+    <link rel="stylesheet" type="text/css" href="mystyle.css">
+    <meta charset="UTF-8">
+    <meta name="description" content="Link-Sammlung">
+    <meta name="author" content="Hansruedi Meyer, Schule Neuhausen">
+</head>
+
+<h1 id="meinTitel">Klasse Lämpel: Mathe-Training 
+    <a href="../index.htm"><img src="home.png" alt="zurück" style="float:right; width: 5%"></a>
+</h1>
+
+<p id="aufgaben"></p>
+
+<!-- ======================================================== -->
+<script>
+    
+    // Aufgaben und Lösungen, immer als "String"
+    const aufgaben = [
+    ["9 x 5","45"],
+["5 x 4","20"],
+["10 x 8","80"],
+["10 x 10","100"],
+["7 x 7","49"],
+["9 x 9","81"],
+["3 x 3","9"],
+["10 x 6","60"],
+["6 x 6","36"],
+["10 x 5","50"],
+["10 x 4","40"],
+["8 x 3","24"],
+["8 x 7","56"],
+["9 x 7","63"],
+["8 x 5","40"],
+["9 x 3","27"],
+["7 x 3","21"],
+["6 x 3","18"],
+["7 x 5","35"],
+["8 x 8","64"],
+["5 x 3","15"],
+["5 x 5","25"],
+["5 x 6","30"],
+["2 x 3","6"],
+["9 x 8","72"],
+["9 x 6","54"],
+["4 x 3","12"],
+["4 x 4","16"],
+["6 x 4","24"],
+["8 x 4","32"],
+["10 x 9","90"],
+["7 x 4","28"],
+["7 x 8","56"],
+["6 x 7","42"],
+["6 x 5","30"],
+["9 x 4","36"],
+["4 x 5","20"],
+["10 x 3","30"],
+["3 x 4","12"],
+["10 x 7","70"],
+["9 x 10","90"],
+["8 x 6","48"],
+["8 x 9","72"],
+["7 x 6","42"],
+["27 : 3","9"],
+["56 : 7","8"],
+["50 : 5","10"],
+["70 : 7","10"],
+["64 : 8","8"],
+["35 : 5","7"],
+["36 : 4","9"],
+["15 : 3","5"],
+["100 : 10","10"],
+["60 : 6","10"],
+["42 : 6","7"],
+["80 : 8","10"],
+["90 : 9","10"],
+["45 : 5","9"],
+["20 : 4","5"],
+["24 : 4","6"],
+["36 : 6","6"],
+["54 : 6","9"],
+["18 : 3","6"],
+["90 : 10","9"],
+["30 : 3","10"],
+["25 : 5","5"],
+["81 : 9","9"],
+["40 : 4","10"],
+["56 : 8","7"],
+["32 : 4","8"],
+["49 : 7","7"],
+["48 : 6","8"],
+["28 : 4","7"],
+["63 : 7","9"],
+["72 : 8","9"],
+["12 : 3","4"],
+["6 : 3","2"],
+["72 : 9","8"],
+["30 : 5","6"],
+["20 : 5","4"],
+["40 : 5","8"],
+["16 : 4","4"],
+["24 : 3","8"],
+["12 : 4","3"],
+["42 : 7","6"],
+["21 : 3","7"],
+["9 : 3","3"],
+["30 : 6","5"],
+                    ];
+
+    let aufgaben_laenge = aufgaben.length;
+
+    // Array zufällig mischen
+    for (let i = aufgaben_laenge -1; i > 0; i--) {
+    let j = Math.floor(Math.random() * i)
+    let k = aufgaben[i]
+    aufgaben[i] = aufgaben[j]
+    aufgaben[j] = k
+    }
+
+    // Titel der Aufgaben-Sammlung
+    let text = "<h2>Einmaleins mit Zahlen bis 10</h2>";
+
+    // Beschreibung
+    text += "<p>Rechne möglichst rasch - Du schaffst das!.<br>Löse 20 bis 30 Aufgaben.</p>"
+
+    // Anzahl Aufgaben
+    text += "<p>Es sind " + aufgaben_laenge + " Aufgaben. </p>"
+
+    // Erklärung der Funktionsweise
+    text += // Karte Vorderseite
+            "<div class=\"flip-box\">" +
+            "<div class=\"flip-box-inner\">" +
+            "<div class=\"flip-box-front\">" +
+            "<h4>" + 
+            "Anleitung: <br>Drücke auf die Karte" + 
+            "</h4>" +
+            "</div>" + 
+            // Karte Rückseite
+            "<div class=\"flip-box-back\">" +
+            "<h4>" +
+            "Jetzt siehst du die Lösung" + 
+            "</h4>" +
+            "</div>" +
+            "</div>" +
+            "</div>" +
+            // Abstand
+            "<div id=\"space\">" +
+            "<p>Hier steht nur etwas in weiss, als Abstandhalter</p>" +
+            "</div>";
+    
+    // Karten für alle Aufgaben          
+    for (let i = 0; i < aufgaben_laenge; i++) {
+    text += // Karte Vorderseite
+            "<div class=\"flip-box\">" +
+            "<div class=\"flip-box-inner\">" +
+            "<div class=\"flip-box-front\">" +
+            "<h4>" + 
+            aufgaben[i][0] + 
+            "</h4>" +
+            "</div>" + 
+            // Karte Rückseite
+            "<div class=\"flip-box-back\">" +
+            "<h4>" +
+            aufgaben[i][1] + 
+            "</h4>" +
+            "</div>" +
+            "</div>" +
+            "</div>" +
+            // Abstand
+            "<div id=\"space\">" +
+            "<p>Hier steht nur etwas in weiss, als Abstandhalter</p>" +
+            "</div>";
+
+    }
+    
+    document.getElementById("aufgaben").innerHTML = text;
+    //console.log(text)
+
+    
+</script>
+
+<div id="space">
+    <p>Hier steht nur etwas in weiss, als Abstandhalter</p>
+</div>
+
+<div id="footer">
+    <p>
+        <script>
+            var date = document.lastModified;
+            var datum = new Date(date);
+            document.write("Geändert am: " + datum.toLocaleDateString() + "&emsp;");
+        </script>
+
+        <a href="about.htm">von HM</a>
+
+    </p>
+</div>
+
+
+</body>
+</html> 
