@@ -1,28 +1,27 @@
 body {
-    width: 90%;
-    margin: auto;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 150%;
+  width: 90%;
+  margin: auto;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 150%;
 }
 
-
 a {
-    color: black;
-    /* padding: 0.5em 0.5em 0.5em 0.5em; */
+  color: black;
+  /* padding: 0.5em 0.5em 0.5em 0.5em; */
 }
 
 li {
-    padding-left: 0.5em;
-    padding-bottom: 0.3em;
+  padding-left: 0.5em;
+  padding-bottom: 0.3em;
 }
 
-
 #meinTitel {
+  /* position: fixed; */
   background-color: goldenrod;
   color: black;
   padding: 40px;
   /* text-align: center; */
-} 
+}
 
 figure {
   position: relative;
@@ -41,15 +40,15 @@ figcaption {
 }
 
 #footer {
-   position: fixed;
-   bottom: 0;
-   width: 90%;
-   height: 2em;
-   background-color: goldenrod;
-   color: black;
-   text-align: center;
-   padding-bottom: 10px;
-   font-size: 50%;
+  position: fixed;
+  bottom: 0;
+  width: 90%;
+  height: 2em;
+  background-color: goldenrod;
+  color: black;
+  text-align: center;
+  padding-bottom: 10px;
+  font-size: 50%;
 }
 
 #klein {
@@ -130,7 +129,8 @@ figcaption {
   transform: rotateY(180deg);
 }
 
-.flip-box-front, .flip-box-back {
+.flip-box-front,
+.flip-box-back {
   position: absolute;
   width: 100%;
   height: 100%;
